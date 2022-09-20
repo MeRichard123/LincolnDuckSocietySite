@@ -1,5 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const Cards = [
+	{
+		title: "Activities",
+		desc: "As a society we aim to build a community and host many events such as bar crawls, walks, and photography contests."
+	},	
+	{
+		title: "Education",
+		desc: "We aim to spread awareness about all things duck related, their diet in the wild, what you can feed them on trips out, and much more."
+	},
+	{
+		title: "Duck Parties",
+		desc: "This is some really instresting text which needs to be changed, but I'm way too tired to actually change it right now."
+	}
+]
+
 ---
 <Layout title="The Lincoln Duck Society">
 		<section class="w-full h-screen grid place-items-center">
@@ -10,11 +27,36 @@ import Layout from '../layouts/Layout.astro';
 					<button class="my-4 bg-dark py-2 px-9 text-sm text-white">Join</button>
 				</aside>
 				<aside class="ml-auto grid place-items-center">
-					<img class="w-2/5" src="/assets/duck-placeholder.jpg" alt="">
+					<img class="w-2/5" src="/assets/duck-placeholder.jpg" alt="Duck">
 				</aside>
 			</div>
 		</section>
 		<section class="observeMe h-[200vh] bg-duckPattern bg-center bg-no-repeat">
-			
+			<div class="locationSection mt-12 pt-12">
+				<div class="locationDesc">
+					<h2 class="font-cormorant text-3xl my-3">The Location</h2>
+					<p class="mt-2">
+						The Brayford Pool river located right next the University is home to many adorable
+						duck families, along with swans and geese. Lorem ipsum dolor sit amet consectetur, 
+						adipisicing elit. Eos, necessitatibus?	
+					</p>
+					<p class="mt-2">
+					The society meets every sit amet consectetur adipisicing elit. We meet in laborum
+						consequatur facere blanditiis quaerat deserunt totam enim voluptates, quia repellat
+						fugiat id tempora quae, ut officia eaque quasi architecto?
+					</p>
+				</div>
+				<div class="locationImage">
+					<img src="/assets/Brayford.png" alt="Brayford Pool">
+				</div>
+			</div>
+			<di class="flex items-center justify-center mt-5 flex-col">
+				<h2 class="font-cormorant text-5xl">What we do.</h2>
+				<div class="cards mt-2">
+					{Cards.map((card,idx) => {
+						return <Card index={idx} title={card.title} desc={card.desc} />
+					})}
+				</div>
+			</di>
 		</section>
 </Layout>

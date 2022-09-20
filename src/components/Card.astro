@@ -1,0 +1,26 @@
+---
+interface Props{
+    title: string;
+    index: number;
+    desc: string;
+}
+
+const {title,index, desc} = Astro.props;
+---
+<style>
+.box{
+    position: relative;
+}
+.index{
+    position: absolute;
+    left: 0;
+    top: -10%;
+    padding: 5px;
+}
+
+</style>
+<div class="box shadow-md p-10 m-5 bg-white">
+    <p class="index font-bold font-cormorant text-3xl">{'0' + (index+1)}</p>
+    <h4 class="font-cormorant text-xl mb-2">{title}</h4>
+    <p class="whitespace-normal">{desc}</p>
+</div>
